@@ -1,6 +1,8 @@
 name: Check & fix styling
 
-on: [push]
+on:
+    schedule:
+      - cron: '0 12 * * 1'
 
 jobs:
   php-cs-fixer:
@@ -8,7 +10,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
 
